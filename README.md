@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MyLegalRisk
 
-## Getting Started
+창업 아이디어의 법적 리스크를 1차로 점검해주는 AI 기반 웹 서비스입니다.
 
-First, run the development server:
+배포 URL: https://mylegalrisk.vercel.app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 소개
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+MyLegalRisk는 사용자가 창업 아이디어를 입력하면 다음 흐름으로 법적 리스크를 분석합니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. RAG 기준 문서 기반 리스크 분류
+2. Tavily 검색을 통한 관련 법령·규제 정보 보강
+3. OpenAI 모델을 통한 최종 리스크 분석
+4. 카드형 결과 및 Markdown 저장 제공
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+본 서비스는 법률 자문이 아니라, 창업 초기 단계에서 확인해야 할 법적 이슈를 빠르게 파악하기 위한 정보 제공용 도구입니다.
 
-## Learn More
+## 주요 기능
 
-To learn more about Next.js, take a look at the following resources:
+- 창업 아이디어 입력 기반 법적 리스크 분석
+- 개인정보, 전자상거래, 광고/표시, 의료, 금융, 법률/세무 등 리스크 카테고리 분류
+- RAG 기준 문서 기반 체크리스트 제공
+- Tavily 검색 결과를 활용한 참고 출처 제공
+- OpenAI 기반 요약 및 리스크 카드 생성
+- 분석 결과 복사
+- Markdown 파일 저장
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 분석 카테고리
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+현재 다음과 같은 법적 리스크 카테고리를 기준으로 분석합니다.
 
-## Deploy on Vercel
+- 개인정보
+- 전자상거래
+- 광고/표시
+- 위치정보
+- 금융
+- 의료
+- 법률/세무
+- 식품
+- 플랫폼 책임
+- 약관/환불
+- 미성년자
+- 지식재산권
+- 모빌리티
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 기술 스택
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- OpenAI Responses API
+- Tavily Search API
+- Vercel
+
+## 프로젝트 구조
+
+```txt
+mylegalrisk
+├── app
+│   ├── api
+│   │   └── legal-risk
+│   │       └── route.ts
+│   └── page.tsx
+├── data
+│   └── legal_risk_rag.json
+├── lib
+│   └── rag.ts
+├── public
+├── package.json
+└── README.md
